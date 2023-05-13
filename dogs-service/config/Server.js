@@ -3,10 +3,10 @@ const express = require('express');
 module.exports = class Server {
     constructor() {
         this.app = express();
-        this.port = process.env.PORT || 5000;
+        this.port = process.env.PORT || 4000;
 
         this.routes = {
-            competitions: '/api/v1/competitions'
+            dogs: '/api/v1/dogs'
         };
         this.routesSetUp();
 
@@ -14,7 +14,7 @@ module.exports = class Server {
     }
 
     routesSetUp() {
-        this.app.use(this.routes.competitions, require('../routes/competitions.routes'));
+        this.app.use(this.routes.dogs, require('../routes/dogs.routes'));
     }
 
     middlewareConfig() {
@@ -23,6 +23,6 @@ module.exports = class Server {
     }
 
     turnOn() {
-        this.app.listen(this.port, () => { console.log('Competitions MICROSERVICE is running.') });
+        this.app.listen(this.port, () => { console.log('Dogs MICROSERVICE is running.') });
     }
 }

@@ -3,7 +3,7 @@ const database = sqlite('database/competitions.db');
 
 (() => {
     const fyleSystem = require('fs');
-    const sqlScript = fyleSystem.readFileSync('database/premios.sql', 'utf-8');
+    const sqlScript = fyleSystem.readFileSync('database/premios.sql', { encoding: 'utf-8' });
 
     const sqlStatements = sqlScript.split(';');
     sqlStatements.forEach((statement) => {
