@@ -1,0 +1,1 @@
+Ejecutar con "docker-compose up --build"

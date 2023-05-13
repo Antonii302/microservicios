@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  breeds: 
+    build: ./breeds-service
+    volumes:
+      - ./breeds-service:/app
+      - /app/node_modules
+      
   dogs: 
     build: ./dogs-service
     volumes:
@@ -20,5 +26,6 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
+      - breeds
       - dogs
       - competitions

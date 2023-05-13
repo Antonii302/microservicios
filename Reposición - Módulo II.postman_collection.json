@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "409f7c50-c3b1-463f-9c87-868dd862f1dc",
+		"name": "Reposición - Módulo II",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26563809"
+	},
+	"item": [
+		{
+			"name": "Repo: Get dogs by owner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dogs/owner/España",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dogs",
+						"owner",
+						"España"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Repo: Get champios by top five",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/competitions/top_winners/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"competitions",
+						"top_winners",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

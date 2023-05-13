@@ -21,6 +21,15 @@ const allRecords = [];
 
 const findAll = () => { return allRecords };
 
+const findBreed = (name) => {
+    const oneRecord = allRecords.filter((breed) => {
+        return breed['raza'] === name;
+    });
+
+    return oneRecord;
+}
+
 module.exports = {
-    findAll
+    findAll,
+    findBreed
 }

@@ -1,1 +1,3 @@
+./breeds-service/node_modules
+./dogs-service/node_modules
 ./competitions-service/node_modules

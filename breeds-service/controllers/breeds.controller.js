@@ -1,4 +1,4 @@
-const { findAll } = require('../models/breeds.model');
+const { findAll, findBreed } = require('../models/breeds.model');
 
 const serverReponse = (bonusMessage) => {
     return Object.assign({}, {
@@ -22,6 +22,26 @@ const getAllBreeds = (req, res) => {
         data: breeds
     }));
 };
+
+const getBreed = (req, res) => {
+    const { name } = req.params;
+
+    const breed = findBreed(name);
+
+    if (breed === null || breed === undefined) {
+        return res.status(404).send(serverReponse({
+            message: 'Lo sentimos. No hemos encontrado algún registro que coincida con el parámetro establecido',
+            data: 'Vacío'
+        }));
+    }
+    
+    return res.status(200).send(serverReponse({
+        dataLength: breed.length,
+        data: breed
+    }));
+};
+
 module.exports = {
-    getAllBreeds
+    getAllBreeds,
+    getBreed
 }

@@ -45,8 +45,19 @@ const findOneById = (id) => {
     return oneRecord;
 };
 
+const findByTopFive = () => {
+    const database = sqlite('database/competitions.db');
+
+    const query = database.prepare('SELECT id, id_campeon, anio_campeonato, lugar, categoria_ganada, pais_competencia, premio, puntaje, COUNT(*) as competitions_won FROM campeonatos GROUP BY id_campeon ORDER BY competitions_won DESC LIMIT 5');
+    const someRecords = query.all();
+
+    database.close();
+    return someRecords;    
+};
+
 module.exports = {
     findAll,
     findByChampionId,
-    findOneById
+    findOneById,
+    findByTopFive
 }
