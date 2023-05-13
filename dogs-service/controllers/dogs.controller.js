@@ -23,6 +23,26 @@ const getAllDogs = (req, res) => {
     }));
 };
 
+const getCompetitionsById = async (req, res) => {
+    const needle = require('needle');
+
+    const { id } = req.params;
+    const competitions = (await needle(`http://competitions:5000/api/v1/competitions/dogs/${id}`)).body.data;
+    
+    if (competitions.every(competition => !competition)) {
+        return res.status(404).send(serverReponse({
+            message: 'Lo sentimos. No hemos encontrado registro alguno',
+            data: 'Vacío'
+        }));
+    }
+    
+    return res.status(200).send(serverReponse({
+        dataLength: competitions.length,
+        data: competitions
+    }));
+};
+
 module.exports = {
-    getAllDogs
+    getAllDogs,
+    getCompetitionsById
 }
